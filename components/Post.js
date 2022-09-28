@@ -1,7 +1,11 @@
 import {  ChartBarIcon, ChatBubbleOvalLeftIcon, EllipsisHorizontalIcon, HeartIcon, ShareIcon } from "@heroicons/react/24/outline";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atom/modalAtom";
 
 
 export default function Post({post}) {
+    const [open,setOpen] = useRecoilState(modalState);
+
   return <div className="flex p-3 cursor-pointer border-b border-gray-200">
     {/* profile image */}
     <img className = "h-11 w-11 rounded-full mr-4 object-cover " src={post.userImg} alt="user-image" />
@@ -31,7 +35,7 @@ export default function Post({post}) {
 
             {/* icons */}
             <div className="flex justify-between text-gray-500 p-2">
-                <ChatBubbleOvalLeftIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100"/>
+                <ChatBubbleOvalLeftIcon onClick={()=>setOpen(!open)} className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100"/>
                 <HeartIcon className="h-9 w-9 hoverEffect p-2 hover:text-red-500 hover:bg-red-100"/>
                 <ShareIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100"/>
                 <ChartBarIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100"/>
