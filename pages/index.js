@@ -26,7 +26,7 @@ export default function Home({ newsResults, randomUserResults }) {
         />
 
         {/* Modal */}
-        <CommentModal/>
+        <CommentModal/> 
       </main>
     </div>
   );
